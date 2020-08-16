@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<a v-bind:href="url">Google</a>
+		<a :href="url">Google1</a>
+		<button v-on:click="handle">Switch</button>
+	</div>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:'#app',
+			data: {
+				url: 'https://www.google.com'
+			},
+			methods:{
+				handle: function(){
+					this.url = 'https://www.youtube.com'
+				}
+			}
+		})
+		 
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.active{
+			border: 1px solid red;
+			width:100px;
+			height:100px;
+		}
+		.orange {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div v-bind:class="{active: isActive, orange: isOrange}">Test</div>
+		<button v-on:click='handle'>Switch</button>
+	</div>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:'#app',
+			data: {
+				isActive: true,
+				isOrange: false
+			},
+			methods:{
+				handle: function(){
+					this.isActive = !this.isActive
+					this.isOrange = !this.isOrange
+				}
+			}
+		})
+		 
+	</script>
+	
+</body>
+</html>
