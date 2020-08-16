@@ -3,20 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style type="text/css">
-		.active{
-			border: 1px solid red;
-			width:100px;
-			height:100px;
-		}
-		.orange {
-			background-color: orange;
-		}
-	</style>
 </head>
 <body>
 	<div id="app">
-		<div v-bind:class="{active: isActive, orange: isOrange}">Test</div>
+		<div v-bind:style='{border: borderStyle, width: widthStyle, height: heightStyle}'></div>
+		<div v-bind:style='objStyles'></div>
 		<button v-on:click='handle'>Switch</button>
 	</div>
 	<script type="text/javascript" src="js/vue.js"></script>
@@ -24,13 +15,18 @@
 		var vm = new Vue({
 			el:'#app',
 			data: {
-				isActive: true,
-				isOrange: false
+				borderStyle: '1px solid blue',
+				widthStyle: '100px',
+				heightStyle: '200px',
+				objStyles:{
+					border: '1px solid green',
+					width: '200px',
+					height: '100px'
+				}
 			},
 			methods:{
 				handle: function(){
-					this.isActive = !this.isActive
-					this.isOrange = !this.isOrange
+					this.heightStyle='100px';
 				}
 			}
 		})
